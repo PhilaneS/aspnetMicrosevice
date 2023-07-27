@@ -3,12 +3,20 @@ version: '3.4'
 services:
   catelogdb:
      image: mongo
-
+  basketdb:
+     image: redis:alpine
   catelog.api:
     image: ${DOCKER_REGISTRY-}catelogapi
     build:
       context: .
       dockerfile: Services/Catelog/Catelog.API/Dockerfile
 
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Services/Basket/Basket.API/Dockerfile
+
 volumes:
   mongo_data:
+
