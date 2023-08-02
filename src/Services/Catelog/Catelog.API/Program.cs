@@ -15,9 +15,7 @@ namespace Catelog.API
             builder.Services.AddControllers();           
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(c => {
-                c.SwaggerDoc("v1",new OpenApiInfo { Title="Catalog.API", Version="v1" });
-            });
+            builder.Services.AddSwaggerGen(c => { c.SwaggerDoc("v1",new OpenApiInfo { Title="Catalog.API", Version="v1" });});
 
             builder.Services.AddScoped<ICatelogContext, CatelogContext>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
