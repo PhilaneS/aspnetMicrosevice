@@ -21,6 +21,7 @@ namespace Basket.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog.API", Version = "v1" });
             });
 
+            
             builder.Services.AddStackExchangeRedisCache(options =>
             {
                 options.Configuration = builder.Configuration.GetValue<string>("CacheSettings:ConnectionString");
@@ -38,7 +39,7 @@ namespace Basket.API
                     cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
                 });
             });
-            //builder.Services.AddMassTransitHostedService();
+            builder.Services.AddAutoMapper(typeof(Program));
 
             var app = builder.Build();
 
