@@ -20,6 +20,8 @@ namespace Ordering.Application.Features.Orders.Commands.DeleteOrder
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+
+
         public async Task<Unit> Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
             var orderToDelete = await _orderRepository.GetByIdAsync(request.Id);

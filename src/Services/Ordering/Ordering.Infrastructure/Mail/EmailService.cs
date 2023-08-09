@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Ordering.Application.Contracts.Infrastructure;
 using Ordering.Application.Models;
 using System;
@@ -13,9 +14,9 @@ namespace Ordering.Infrastructure.Mail
     {
         public EmailSettings _emailSettings { get; }
         public ILogger<EmailService> _logger { get; set; }
-        public EmailService(EmailSettings emailSettings, ILogger<EmailService> logger)
+        public EmailService(IOptions<EmailSettings> emailSettings, ILogger<EmailService> logger)
         {
-            _emailSettings = emailSettings ?? throw new ArgumentNullException(nameof(emailSettings));
+            _emailSettings = emailSettings.Value ?? throw new ArgumentNullException(nameof(emailSettings)); 
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
    

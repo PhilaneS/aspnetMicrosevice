@@ -19,7 +19,23 @@ namespace Ordering.Infrastructure.Persistence
         {
             return new Order[]
             {
-                new Order() {UserName = "swn", FirstName = "Philane", LastName = "Sigwebela", EmailAddress = "", TotalPrice=20}
+                new Order()
+                {
+                    UserName = "swn",
+                    FirstName = "Philane",
+                    LastName = "Sigwebela",
+                    EmailAddress = "kizer.p@gmail.com",
+                    AddressLine = "5611 Manqele St",
+                    Country = "South Africa",
+                    State = "KwaZulu Natal",
+                    ZipCode = "4001",
+                    TotalPrice=50,
+                     CardName="Philane Sigwebela",
+                     CardNumber="1234567891234567",
+                     Expiration="12/24",
+                     CVV="123",
+                     PaymentMethod=1
+                }
             };
         }
     }
